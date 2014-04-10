@@ -1,0 +1,18 @@
+<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 question-list">
+	<h2>Legit URL</h2>
+	<form role="form" ng-submit="createURL()" name="createURLForm">
+		<div class="form-group">
+			<label for="orgURL">URL</label>
+			<input id="orgURL" type="text" data-ng-model="orgURL" placeholder="Enter URL" name="orgURL" class="form-control"/>
+		</div>
+		<button type="submit" class="btn btn-default buildURL">Go!</button>
+	</form>
+
+	<div data-ng-hide="showURLSuccessMessage" class="createURLSuccess">
+		{{successMessage}}
+	</div>
+
+	<div data-ng-hide="showURLErrorMessage" class="createURLError">
+		{{errorMessage}}
+	</div>
+</div>

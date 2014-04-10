@@ -1,0 +1,141 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none;
+}
+
+/*  */
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+/* sets globals */
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	background: #599CDE;
+	line-height: 1.428571429;
+	color: #fff;
+}
+li {
+	list-style-type: none;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+}
+a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+/* set row */
+.row.container {
+	margin-top: 50px;
+	margin-left: 95px;
+}
+
+/* remove row margins on phone screen */
+@media (max-width: 400px) {
+	.row.container {
+		margin-top: 40px;
+		margin-left: 0;
+	}
+}
+
+/* some padding classes */
+.psl {
+	padding-left: 5px;
+}
+.psr {
+	padding-right: 5px;
+}
+.pst {
+	padding-top: 5px;
+}
+.psb {
+	padding-bottom: 5px;
+}
+
+/* some margin classes */
+.msl {
+	margin-left: 5px;
+}
+.msr {
+	margin-right: 5px;
+}
+.mst {
+	margin-top: 5px;
+}
+.msb {
+	margin-bottom: 5px;
+}
+
+/* QA page */
+.question .ask-question {
+	float: right;
+}
+.subCategory {
+	padding-left: 10px;
+}
+#subCategory {
+	min-width: 100px;
+}
+
+/* loading divs in */
+.fade-hide-setup, .fade-show-setup {
+	-webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	-moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	-o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+.fade-hide-setup {
+	opacity:1;
+}
+.fade-hide-setup.fade-hide-start {
+	opacity:0;
+}
+.fade-show-setup {
+	opacity:0;
+}
+.fade-show-setup.fade-show-start {
+	opacity:1;
+}
+/* styles for tiles */
+.container-fluid .row-fluid .span8 .row-fluid .span4 {
+	background-color: #fefefe;
+	min-height: 280px;
+}
+.container-fluid .row-fluid .span8 .row-fluid .span4 p{
+	min-height: 175px;
+}
+/* padding between divs */
+.topSpacer {
+	margin-top: 40px;
+}
+/* display none */
+.displayNone {
+	display: none !important;
+}
+.answer{
+	width: 80%;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+.answerRight{
+	float: right;
+}
+.answerLeft{
+	float: left;
+}
+/* bug - input/textarea extend outside of well */ 
+input, textarea {
+	max-width: 100%;
+} 
+/* error message */
+.errorDisplay {
+	background-color: red;
+	padding: 5px;
+	font-size: 20px;
+}
+
+/* QA Details */
+.well {
+	background-color: #598ABA;
+}
