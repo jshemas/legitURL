@@ -1,7 +1,6 @@
 var _ = require('underscore'),
 	path = require('path'),
-	URLCtrl = require('./controllers/url'),
-	userRoles = require('../client/app/scripts/routingConfig').userRoles;
+	URLCtrl = require('./controllers/url');
 
 var routes = [
 
@@ -37,11 +36,6 @@ var routes = [
 		path: '/*',
 		httpMethod: 'GET',
 		middleware: [function (req, res) {
-			var role = userRoles.public, username = '';
-			res.cookie('user', JSON.stringify({
-				'username': username,
-				'role': role
-			}));
 			res.render('index', {'env': process.env.NODE_ENV});
 		}]
 	}
