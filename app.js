@@ -1,4 +1,6 @@
 var express = require('express'),
+	bodyParser = require('body-parser'),
+	methodOverride = require('method-override'),
 	mongoose = require('mongoose'),
 	ECT = require('ect');
 
@@ -21,12 +23,9 @@ mongoose.connect('mongodb://localhost/urls', function onMongooseError(err) {
 
 app.engine('.html', ectRenderer.render);
 app.set('view engine', 'html');
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.cookieParser());
-app.use(express.cookieSession({
-	secret: 'choo choo'
-}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride());
 
 require('./server/routes.js')(app);
 
