@@ -5,48 +5,48 @@ var request = require('supertest'),
 
 //test url formats
 var	options1 = {
-		'orgURL':'http://www.google.com'
+		'orgURL': 'http://www.google.com'
 	},
 	options2 = {
-		'orgURL':'http://www.google.com/'
+		'orgURL': 'http://www.google.com/'
 	},
 	options3 = {
-		'orgURL':'https://www.google.com/'
+		'orgURL': 'https://www.google.com/'
 	},
 	options4 = {
-		'orgURL':'www.google.com/'
+		'orgURL': 'www.google.com/'
 	},
 	options5 = {
-		'orgURL':'google.com/'
+		'orgURL': 'google.com/'
 	},
 	options6 = {
-		'orgURL':'http://google.com/'
+		'orgURL': 'http://google.com/'
 	};
 
 //invaild url
 var options7 = {
-	'orgURL':'http://testtesttest4564568.com'
+	'orgURL': 'http://testtesttest4564568.com'
 };
 
 // some bad urls
 var options8 = {
-		'orgURL':23233
+		'orgURL': 23233
 	},
 	options9 = {
-		'orgURL':'2323233'
+		'orgURL': '2323233'
 	},
 	options10 = {
-		'orgURL':'this is a testt'
+		'orgURL': 'this is a testt'
 	};
 
 // used for stats
 var options11 = {
-	'orgURL':'http://www.google.com'
+	'orgURL': 'http://www.google.com'
 };
 
-//empty value 
+//empty value
 var optionsEmpty = {
-	'orgURL':''
+	'orgURL': ''
 };
 
 //no url
@@ -54,15 +54,15 @@ var optionsNoUrl = { };
 
 var mod_url1, mod_url2, mod_url3, mod_url4, mod_url5, mod_url6, mod_url7, mod_url11;
 
-afterEach(function() {
-	setTimeout(function() {
+afterEach(function () {
+	setTimeout(function () {
 		// delay for 500ms, too many open file/connections
 	}, 500);
 });
 
 describe('Build URL - ', function () {
-	it('options1', function(done) {
-		supertest.post('/createURL').send(options1).end( function(err, result) {
+	it('options1', function (done) {
+		supertest.post('/createURL').send(options1).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options1.orgURL);
@@ -70,8 +70,8 @@ describe('Build URL - ', function () {
 			done();
 		});
 	});
-	it('options2', function(done) {
-		supertest.post('/createURL').send(options2).end( function(err, result) {
+	it('options2', function (done) {
+		supertest.post('/createURL').send(options2).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options2.orgURL);
@@ -79,8 +79,8 @@ describe('Build URL - ', function () {
 			done();
 		});
 	});
-	it('options3', function(done) {
-		supertest.post('/createURL').send(options3).end( function(err, result) {
+	it('options3', function (done) {
+		supertest.post('/createURL').send(options3).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options3.orgURL);
@@ -88,26 +88,26 @@ describe('Build URL - ', function () {
 			done();
 		});
 	});
-	it('options4', function(done) {
-		supertest.post('/createURL').send(options4).end( function(err, result) {
+	it('options4', function (done) {
+		supertest.post('/createURL').send(options4).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
-			Expect(result.body.res.url_original).to.be('http://'+options4.orgURL);
+			Expect(result.body.res.url_original).to.be('http://' + options4.orgURL);
 			mod_url4 = result.body.res.url_modify;
 			done();
 		});
 	});
-	it('options5', function(done) {
-		supertest.post('/createURL').send(options5).end( function(err, result) {
+	it('options5', function (done) {
+		supertest.post('/createURL').send(options5).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
-			Expect(result.body.res.url_original).to.be('http://'+options5.orgURL);
+			Expect(result.body.res.url_original).to.be('http://' + options5.orgURL);
 			mod_url5 = result.body.res.url_modify;
 			done();
 		});
 	});
-	it('options6', function(done) {
-		supertest.post('/createURL').send(options6).end( function(err, result) {
+	it('options6', function (done) {
+		supertest.post('/createURL').send(options6).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options6.orgURL);
@@ -115,8 +115,8 @@ describe('Build URL - ', function () {
 			done();
 		});
 	});
-	it('options7', function(done) {
-		supertest.post('/createURL').send(options7).end( function(err, result) {
+	it('options7', function (done) {
+		supertest.post('/createURL').send(options7).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options7.orgURL);
@@ -124,48 +124,48 @@ describe('Build URL - ', function () {
 			done();
 		});
 	});
-	it('options8', function(done) {
-		supertest.post('/createURL').send(options8).end( function(err, result) {
+	it('options8', function (done) {
+		supertest.post('/createURL').send(options8).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			Expect(result.body.err[0]).to.be('Invalid URL');
 			done();
 		});
 	});
-	it('options9', function(done) {
-		supertest.post('/createURL').send(options9).end( function(err, result) {
+	it('options9', function (done) {
+		supertest.post('/createURL').send(options9).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			Expect(result.body.err[0]).to.be('Invalid URL');
 			done();
 		});
 	});
-	it('options10', function(done) {
-		supertest.post('/createURL').send(options10).end( function(err, result) {
+	it('options10', function (done) {
+		supertest.post('/createURL').send(options10).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			Expect(result.body.err[0]).to.be('Invalid URL');
 			done();
 		});
 	});
-	it('optionsEmpty', function(done) {
-		supertest.post('/createURL').send(optionsEmpty).end( function(err, result) {
+	it('optionsEmpty', function (done) {
+		supertest.post('/createURL').send(optionsEmpty).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			Expect(result.body.err[0]).to.be('Invalid URL');
 			done();
 		});
 	});
-	it('optionsNoUrl', function(done) {
-		supertest.post('/createURL').send(optionsNoUrl).end( function(err, result) {
+	it('optionsNoUrl', function (done) {
+		supertest.post('/createURL').send(optionsNoUrl).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			Expect(result.body.err[0]).to.be('Invalid URL');
 			done();
 		});
 	});
-	it('options11', function(done) {
-		supertest.post('/createURL').send(options11).end( function(err, result) {
+	it('options11', function (done) {
+		supertest.post('/createURL').send(options11).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options11.orgURL);
@@ -176,71 +176,71 @@ describe('Build URL - ', function () {
 });
 
 describe('Go To URL - ', function () {
-	it('options1', function(done) {
-		supertest.get('/goto/'+mod_url1).end( function(err, result) {
+	it('options1', function (done) {
+		supertest.get('/goto/' + mod_url1).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options1.orgURL);
 			done();
 		});
 	});
-	it('options2', function(done) {
-		supertest.get('/goto/'+mod_url2).end( function(err, result) {
+	it('options2', function (done) {
+		supertest.get('/goto/' + mod_url2).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options2.orgURL);
 			done();
 		});
 	});
-	it('options3', function(done) {
-		supertest.get('/goto/'+mod_url3).end( function(err, result) {
+	it('options3', function (done) {
+		supertest.get('/goto/' + mod_url3).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options3.orgURL);
 			done();
 		});
 	});
-	it('options4', function(done) {
-		supertest.get('/goto/'+mod_url4).end( function(err, result) {
+	it('options4', function (done) {
+		supertest.get('/goto/' + mod_url4).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
-			Expect(result.res.headers.location).to.be('http://'+options4.orgURL);
+			Expect(result.res.headers.location).to.be('http://' + options4.orgURL);
 			done();
 		});
 	});
-	it('options5', function(done) {
-		supertest.get('/goto/'+mod_url5).end( function(err, result) {
+	it('options5', function (done) {
+		supertest.get('/goto/' + mod_url5).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
-			Expect(result.res.headers.location).to.be('http://'+options5.orgURL);
+			Expect(result.res.headers.location).to.be('http://' + options5.orgURL);
 			done();
 		});
 	});
-	it('options6', function(done) {
-		supertest.get('/goto/'+mod_url6).end( function(err, result) {
+	it('options6', function (done) {
+		supertest.get('/goto/' + mod_url6).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options6.orgURL);
 			done();
 		});
 	});
-	it('options7', function(done) {
-		supertest.get('/goto/'+mod_url7).end( function(err, result) {
+	it('options7', function (done) {
+		supertest.get('/goto/' + mod_url7).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options7.orgURL);
 			done();
 		});
 	});
-	it('optionsNoModURL', function(done) {
-		supertest.get('/goto/').end( function(err, result) {
+	it('optionsNoModURL', function (done) {
+		supertest.get('/goto/').end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			done();
 		});
 	});
-	it('optionsBadModURL1', function(done) {
-		supertest.get('/goto/'+'omggg').end( function(err, result) {
+	it('optionsBadModURL1', function (done) {
+		supertest.get('/goto/' + 'omggg').end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			done();
 		});
 	});
-	it('optionsBadModURL2', function(done) {
-		supertest.get('/goto/'+132).end( function(err, result) {
+	it('optionsBadModURL2', function (done) {
+		supertest.get('/goto/' + 132).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			done();
@@ -249,8 +249,8 @@ describe('Go To URL - ', function () {
 });
 
 describe('Get URL Stats - ', function () {
-	it('round 1', function(done) {
-		supertest.get('/stats/'+mod_url11).end( function(err, result) {
+	it('round 1', function (done) {
+		supertest.get('/stats/' + mod_url11).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options11.orgURL);
@@ -258,15 +258,15 @@ describe('Get URL Stats - ', function () {
 			done();
 		});
 	});
-	it('ding 1', function(done) {
-		supertest.get('/goto/'+mod_url11).end( function(err, result) {
+	it('ding 1', function (done) {
+		supertest.get('/goto/' + mod_url11).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options11.orgURL);
 			done();
 		});
 	});
-	it('round 2', function(done) {
-		supertest.get('/stats/'+mod_url11).end( function(err, result) {
+	it('round 2', function (done) {
+		supertest.get('/stats/' + mod_url11).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options11.orgURL);
@@ -274,22 +274,22 @@ describe('Get URL Stats - ', function () {
 			done();
 		});
 	});
-	it('ding 2', function(done) {
-		supertest.get('/goto/'+mod_url11).end( function(err, result) {
+	it('ding 2', function (done) {
+		supertest.get('/goto/' + mod_url11).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options11.orgURL);
 			done();
 		});
 	});
-	it('ding 3', function(done) {
-		supertest.get('/goto/'+mod_url11).end( function(err, result) {
+	it('ding 3', function (done) {
+		supertest.get('/goto/' + mod_url11).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(302);
 			Expect(result.res.headers.location).to.be(options11.orgURL);
 			done();
 		});
 	});
-	it('round 3', function(done) {
-		supertest.get('/stats/'+mod_url11).end( function(err, result) {
+	it('round 3', function (done) {
+		supertest.get('/stats/' + mod_url11).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(true);
 			Expect(result.body.res.url_original).to.be(options11.orgURL);
@@ -297,22 +297,22 @@ describe('Get URL Stats - ', function () {
 			done();
 		});
 	});
-	it('optionsNoModURL', function(done) {
-		supertest.get('/stats/').end( function(err, result) {
+	it('optionsNoModURL', function (done) {
+		supertest.get('/stats/').end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			done();
 		});
 	});
-	it('optionsBadModURL1', function(done) {
-		supertest.get('/stats/'+'omggg').end( function(err, result) {
+	it('optionsBadModURL1', function (done) {
+		supertest.get('/stats/' + 'omggg').end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			done();
 		});
 	});
-	it('optionsBadModURL2', function(done) {
-		supertest.get('/stats/'+132).end( function(err, result) {
+	it('optionsBadModURL2', function (done) {
+		supertest.get('/stats/' + 132).end(function (err, result) {
 			Expect(result.res.statusCode).to.be(200);
 			Expect(result.body.success).to.be(false);
 			done();

@@ -7,7 +7,9 @@ module.exports = {
 	validateCreateURL: function (originalURL, callback) {
 		var originalURLRes = this.validateURL(originalURL),
 			errArr = [];
-		if (originalURLRes) {errArr.push(originalURLRes); }
+		if (originalURLRes) {
+			errArr.push(originalURLRes);
+		}
 		callback(errArr);
 	},
 
@@ -17,7 +19,9 @@ module.exports = {
 	validateGoToURL: function (modifyURL, callback) {
 		var modifyURLRes = this.validateVar(modifyURL),
 			errArr = [];
-		if (!modifyURLRes) {errArr.push(modifyURLRes); }
+		if (!modifyURLRes) {
+			errArr.push(modifyURLRes);
+		}
 		callback(errArr);
 	},
 

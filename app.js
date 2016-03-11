@@ -18,7 +18,9 @@ if (app.get('env') === 'prod') {
 }
 
 mongoose.connect('mongodb://localhost/urls', function onMongooseError(err) {
-	if (err) { throw err; } // Log This
+	if (err) {
+		throw err; // Log This
+	}
 });
 
 app.engine('.html', ectRenderer.render);

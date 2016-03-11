@@ -18,6 +18,20 @@ module.exports = function (grunt) {
 				src: 'server/**/*.js'
 			}
 		},
+		jscs: {
+			options: {
+				config: '.jscsrc'
+			},
+			gruntfile: {
+				src: 'Gruntfile.js'
+			},
+			appfile: {
+				src: 'app.js'
+			},
+			server: {
+				src: 'server/**/*.js'
+			}
+		},
 		// mocha tests (server)
 		mochaTest: {
 			testIndex: {
@@ -54,28 +68,28 @@ module.exports = function (grunt) {
 		copy: {
 			dist: {
 				cwd: 'client/app',
-				src: [ '**' ],
+				src: ['**'],
 				dest: 'dist/app',
 				expand: true
-			},
+			}
 		},
 		// clean(deletes) the dist folder
 		clean: {
 			dist: {
-				src: [ 'dist/app' ]
+				src: ['dist/app']
 			},
 			styles: {
-				src: [ 'dist/app/styles/*.css', '!dist/app/styles/app.css' ]
+				src: ['dist/app/styles/*.css', '!dist/app/styles/app.css']
 			},
 			scripts: {
-				src: [ 'dist/app/scripts/*.js', '!dist/app/scripts/app.js' ]
+				src: ['dist/app/scripts/*.js', '!dist/app/scripts/app.js']
 			}
 		},
 		// minifies CSS
 		cssmin: {
 			dist: {
 				files: {
-					'dist/app/styles/app.css': [ 'client/app/styles/*.css' ]
+					'dist/app/styles/app.css': ['client/app/styles/*.css']
 				}
 			}
 		},
@@ -86,7 +100,7 @@ module.exports = function (grunt) {
 					mangle: false
 				},
 				files: {
-					'dist/app/scripts/app.js': [ 'client/app/scripts/*.js' ]
+					'dist/app/scripts/app.js': ['client/app/scripts/*.js']
 				}
 			}
 		},
@@ -131,8 +145,8 @@ module.exports = function (grunt) {
 				tasks: ['protractor:e2e']
 			},
 			express: {
-				files:  [ 'server/*.js' ],
-				tasks:  [ 'express:dev' ],
+				files:  ['server/*.js'],
+				tasks:  ['express:dev'],
 				options: {
 					nospawn: true
 				}
@@ -144,6 +158,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-protractor-runner');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-express-server');
 	grunt.loadNpmTasks('grunt-contrib-copy');

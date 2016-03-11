@@ -66,7 +66,6 @@ module.exports = function (app) {
 			break;
 		default:
 			throw new Error('Invalid HTTP method specified for route ' + route.path);
-			//break; //will never get here because of throw
 		}
 	});
 };
