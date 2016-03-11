@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 				src: 'server/**/*.js'
 			}
 		},
+		// backend style checker
 		jscs: {
 			options: {
 				config: '.jscsrc'
@@ -130,15 +131,15 @@ module.exports = function (grunt) {
 		watch: {
 			gruntfile: {
 				files: 'Gruntfile.js',
-				tasks: ['jshint:gruntfile']
+				tasks: ['jshint:gruntfile', 'jscs:gruntfile']
 			},
 			appfile: {
 				files: 'app.js',
-				tasks: ['jshint:server', 'mochaTest:testGen']
+				tasks: ['jshint:server', 'jscs:server', 'mochaTest']
 			},
 			server: {
 				files: 'server/*.js',
-				tasks: ['jshint:server', 'mochaTest:testGen']
+				tasks: ['jshint:server', 'jscs:server', 'mochaTest']
 			},
 			protractor: {
 				files: ['client/**/*.js', 'client/**/*.css', 'client/**/*.html'],
@@ -165,12 +166,12 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	// Tasks.
-	grunt.registerTask('default', ['jshint', 'mochaTest:testIndex', 'mochaTest:testURL']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'mochaTest']);
 	grunt.registerTask('dev', ['express:dev', 'watch']);
 	grunt.registerTask('prod', ['build', 'express:prod']);
 	grunt.registerTask('build', ['clean:dist', 'copy', 'cssmin', 'uglify', 'clean:styles', 'clean:scripts']);
 	grunt.registerTask('testserver', 'run backend tests', function () {
-		var tasks = ['jshint', 'mochaTest:testGen', 'watch'];
+		var tasks = ['jshint', 'jscs', 'mochaTest', 'watch'];
 		// always use force when watching, this will rerun tests if they fail
 		grunt.option('force', true);
 		grunt.task.run(tasks);
