@@ -29,5 +29,5 @@ app.use(methodOverride());
 
 require('./server/routes.js')(app);
 
-console.log("Express server starting!");
+console.log('Express server starting!');
 app.listen(process.env.PORT || 8080);

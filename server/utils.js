@@ -40,7 +40,7 @@ module.exports = {
 	 */
 	validateHttpURL: function (inputUrl, callback) {
 		if (!/^(f|ht)tps?:\/\//i.test(inputUrl)) {
-			inputUrl = "http://" + inputUrl;
+			inputUrl = 'http://' + inputUrl;
 		}
 		callback(inputUrl);
 	},
@@ -67,8 +67,8 @@ module.exports = {
 	 * @param string url - user input: url
 	 */
 	generateString: function (count, callback) {
-		var text = "";
-		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+		var text = '';
+		var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 		for (var i = 0; i < count; i++) {
 			text += possible.charAt(Math.floor(Math.random() * possible.length));
 		}

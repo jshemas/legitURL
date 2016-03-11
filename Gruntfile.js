@@ -15,13 +15,7 @@ module.exports = function (grunt) {
 				src: 'app.js'
 			},
 			server: {
-				src: ['server/*.js']
-			},
-			serverModels: {
-				src: ['server/models/*.js']
-			},
-			serverControllers: {
-				src: ['server/controllers/*.js']
+				src: 'server/**/*.js'
 			}
 		},
 		// mocha tests (server)
@@ -44,14 +38,14 @@ module.exports = function (grunt) {
 		// protractor e2e tests (client)
 		protractor: {
 			options: {
-				configFile: "node_modules/protractor/referenceConf.js",
+				configFile: 'node_modules/protractor/referenceConf.js',
 				keepAlive: true,
 				noColor: false,
 				args: {}
 			},
 			e2e: {
 				options: {
-					configFile: "client/conf/e2e.conf.js",
+					configFile: 'client/conf/e2e.conf.js',
 					args: {}
 				}
 			}
@@ -124,24 +118,16 @@ module.exports = function (grunt) {
 				files: 'Gruntfile.js',
 				tasks: ['jshint:gruntfile']
 			},
+			appfile: {
+				files: 'app.js',
+				tasks: ['jshint:server', 'mochaTest:testGen']
+			},
 			server: {
 				files: 'server/*.js',
 				tasks: ['jshint:server', 'mochaTest:testGen']
 			},
-			serverTests: {
-				files: 'server/tests/server/*.js',
-				tasks: ['jshint:serverTests', 'mochaTest:testGen']
-			},
-			serverModels: {
-				files: 'server/models/*.js',
-				tasks: ['jshint:serverModels', 'mochaTest:testGen']
-			},
-			serverControllers: {
-				files: 'server/controllers/*.js',
-				tasks: ['jshint:serverControllers', 'mochaTest:testGen']
-			},
 			protractor: {
-				files: ['client/tests/e2e/*.js', 'client/conf/*.js', 'client/app/lib/*.js', 'client/app/scripts/*.js', 'client/app/styles/*.css', 'client/app/views/*.html', 'client/app/views/partials/*.html'],
+				files: ['client/**/*.js', 'client/**/*.css', 'client/**/*.html'],
 				tasks: ['protractor:e2e']
 			},
 			express: {
