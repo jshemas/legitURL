@@ -45,15 +45,14 @@ module.exports = {
 
 	getURLStats: function (modifyURL, callback) {
 		var query = URL.findOne({url_modify: modifyURL});
-		query.select('_id url_original url_modify url_hit_count url_date');
+		query.select('url_original url_modify url_hit_count url_date');
 		query.exec(function (err, res) {
 			if (err) {
 				winston.info('Error in getURLStats:' + err);
 				callback('DB-err-getURLStats', null);
 			} else {
-				if (res && res._id) {
+				if (res && res.url_original) {
 					var obj = {
-						_id: res._id,
 						url_original: res.url_original,
 						url_modify: res.url_modify,
 						url_hit_count: res.url_hit_count,

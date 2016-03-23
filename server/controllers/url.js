@@ -33,7 +33,7 @@ module.exports = {
 				URL.getURLStats(modURL, function (err, result) {
 					if (err) {
 						return res.status(200).json({'success': false, 'err': err});
-					} else if (result && result._id) {
+					} else if (result && result.url_original) {
 						return res.status(200).json({'success': true, 'res': result});
 					} else {
 						return res.status(200).json({'success': false});
