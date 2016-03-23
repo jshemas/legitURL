@@ -35,18 +35,14 @@ module.exports = function (grunt) {
 		},
 		// mocha tests (server)
 		mochaTest: {
+			options: {
+				reporter: 'progress',
+				bail: true
+			},
 			testIndex: {
-				options: {
-					reporter: 'progress',
-					bail: true
-				},
 				src: ['server/tests/index.spec.js']
 			},
 			testURL: {
-				options: {
-					reporter: 'progress',
-					bail: true
-				},
 				src: ['server/tests/url.spec.js']
 			}
 		},
@@ -131,23 +127,23 @@ module.exports = function (grunt) {
 		watch: {
 			gruntfile: {
 				files: 'Gruntfile.js',
-				tasks: ['jshint:gruntfile', 'jscs:gruntfile']
+				tasks: ['express:dev:stop', 'jshint:gruntfile', 'jscs:gruntfile', 'express:dev:start']
 			},
 			appfile: {
 				files: 'app.js',
-				tasks: ['jshint:server', 'jscs:server', 'mochaTest']
+				tasks: ['express:dev:stop', 'jshint:server', 'jscs:server', 'mochaTest', 'express:dev:start']
 			},
 			server: {
-				files: 'server/*.js',
-				tasks: ['jshint:server', 'jscs:server', 'mochaTest']
+				files: 'server/**/*.js',
+				tasks: ['express:dev:stop', 'jshint', 'jscs', 'mochaTest', 'express:dev:start']
 			},
 			protractor: {
 				files: ['client/**/*.js', 'client/**/*.css', 'client/**/*.html'],
-				tasks: ['protractor:e2e']
+				tasks: ['express:dev:stop', 'protractor:e2e', 'express:dev:start']
 			},
 			express: {
-				files:  ['server/*.js'],
-				tasks:  ['express:dev'],
+				files: ['server/*.js'],
+				tasks: ['express:dev:stop', 'express:dev:start'],
 				options: {
 					nospawn: true
 				}
@@ -166,15 +162,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	// Tasks.
-	grunt.registerTask('default', ['jshint', 'jscs', 'mochaTest']);
-	grunt.registerTask('dev', ['express:dev', 'watch']);
-	grunt.registerTask('prod', ['build', 'express:prod']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'mochaTest', 'watch']);
+	grunt.registerTask('prod', ['build', 'express:prod:start']);
 	grunt.registerTask('build', ['clean:dist', 'copy', 'cssmin', 'uglify', 'clean:styles', 'clean:scripts']);
-	grunt.registerTask('testserver', 'run backend tests', function () {
-		var tasks = ['jshint', 'jscs', 'mochaTest', 'watch'];
-		// always use force when watching, this will rerun tests if they fail
-		grunt.option('force', true);
-		grunt.task.run(tasks);
-	});
 	grunt.registerTask('teste2e', ['protractor:e2e', 'watch']);
 };
