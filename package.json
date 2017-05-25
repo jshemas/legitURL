@@ -1,47 +1,49 @@
 {
-	"name": "legitURL",
-	"description": "best URL shortener",
-	"homepage": "http://www.localhost.com",
-	"version": "0.1.0",
-	"dependencies": {
-		"express": "4.13.4",
-		"body-parser": "1.15.0",
-		"method-override": "2.3.5",
-		"ect": "0.5.9",
-		"underscore": "1.8.3",
-		"winston": "2.2.0",
-		"mongoose": "4.4.6",
-		"grunt": "0.4.5",
-		"grunt-jscs": "2.6.0",
-		"grunt-contrib-clean": "1.0.0",
-		"grunt-contrib-copy": "1.0.0",
-		"grunt-contrib-cssmin": "1.0.0",
-		"grunt-contrib-jshint": "1.0.0",
-		"grunt-contrib-uglify": "1.0.0",
-		"grunt-contrib-watch": "0.6.1",
-		"grunt-express-server": "0.5.2"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/jshemas/legitURL"
-	},
-	"scripts": {
-		"start": "grunt server",
-		"test": "mocha server/tests"
-	},
-	"engines": {
-		"node": "5.7.0",
-		"npm": "3.6.0"
-	},
-	"licenses": [{
-		"type": "MIT"
-	}],
-	"devDependencies": {
-		"supertest": "1.2.0",
-		"expect.js": "0.3.1",
-		"mocha": "2.4.5",
-		"grunt-mocha-test": "0.12.7",
-		"protractor": "3.1.1",
-		"grunt-protractor-runner": "3.0.0"
-	}
+  "name": "legitURL",
+  "description": "best URL shortener",
+  "homepage": "http://www.localhost.com",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "4.15.3",
+    "body-parser": "1.17.2",
+    "method-override": "2.3.9",
+    "ect": "0.5.9",
+    "underscore": "1.8.3",
+    "winston": "2.2.0",
+    "mongoose": "4.10.2",
+    "grunt": "0.4.5",
+    "grunt-jscs": "2.6.0",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-cssmin": "1.0.0",
+    "grunt-contrib-jshint": "1.0.0",
+    "grunt-contrib-uglify": "1.0.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-express-server": "0.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jshemas/legitURL"
+  },
+  "scripts": {
+    "start": "grunt server",
+    "test": "mocha server/tests"
+  },
+  "engines": {
+    "node": "5.7.0",
+    "npm": "3.6.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "supertest": "1.2.0",
+    "expect.js": "0.3.1",
+    "mocha": "2.4.5",
+    "grunt-mocha-test": "0.12.7",
+    "protractor": "3.1.1",
+    "grunt-protractor-runner": "3.0.0"
+  }
 }
