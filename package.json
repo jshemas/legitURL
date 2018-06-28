@@ -4,7 +4,7 @@
 	"homepage": "http://www.localhost.com",
 	"version": "0.1.0",
 	"dependencies": {
-		"express": "4.13.4",
+		"express": "4.16.0",
 		"body-parser": "1.15.0",
 		"method-override": "2.3.5",
 		"ect": "0.5.9",
